@@ -1,0 +1,17 @@
+def is_prime(a_number):
+  result = True
+  for i in range(2, (int(a_number/2))+1):
+    if a_number % i == 0:
+      result = False
+  return result
+
+def largest_prime_fac(a_number):
+  # To reduce computation load, store all prime factors up to a_number in an array
+  primes = [element for element in range(3, int(a_number/2)) if is_prime(element)]
+  factors = [element for element in primes if a_number % element == 0]
+  print(factors[-1])
+
+largest_prime_fac(600851475143)
+# largest_prime_fac(13195)
+             
+    
