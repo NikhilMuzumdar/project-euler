@@ -1,4 +1,4 @@
-import math
+import math, time
 def is_prime(number):
     result = True
     for i in range(2, (int(math.sqrt(number)+1)) + 1):
