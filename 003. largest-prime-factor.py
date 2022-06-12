@@ -1,7 +1,8 @@
 # A Func to check if a number is prime and return True
+import math
 def is_prime(number):
     result = True
-    for i in range(2, (int(number / 2)) + 1):
+    for i in range(2, (int(math.sqrt(number)+1)) + 1):
         if number % i == 0:
             result = False
             break
