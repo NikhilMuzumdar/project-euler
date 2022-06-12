@@ -1,4 +1,4 @@
-# A number that is a product of two 3 digit numbers and is a palindrome
+# The largest number that is a product of two 3 digit numbers and is a palindrome
 
 # Create an array of product of all 3 digit numbers
 def palindrome_three_dig_product():
