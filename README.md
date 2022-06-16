@@ -1,2 +1,3 @@
 # project-euler
-Implimentation of euler problems in python
+Implimentation of project euler problems in python<br>
+https://projecteuler.net/about<br>
