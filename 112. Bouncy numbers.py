@@ -6,11 +6,14 @@ def is_bouncy(nums):
     nums = str(nums)  # Convert number to string
     (lg, rg) = (0, 0)
     for i in range(len(nums) - 1):
-        if nums[i] > nums[i + 1]:  # check if left is greater than right digit and increment lg
+        if int(nums[i]) > int(nums[i + 1]):  # check if left is greater than right digit and increment lg
             lg += 1
-        elif nums[i] == nums[i + 1]:  # do nothing if the pair of digit selected are equal
+            print("Entered 1")
+        elif int(nums[i]) == int(nums[i + 1]):  # do nothing if the pair of digit selected are equal
+            print("Entered 2")
             pass
         else:
+            print("Entered 3")
             rg += 1  # if this loop is entered, right is greater, increment rg
     return lg != 0 and rg != 0  # if there are mixed increments, the number is bouncy
 
