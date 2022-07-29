@@ -1,0 +1,15 @@
+start_string = ""
+start = 1
+while len(start_string) <= 1000000:
+  start_string += str(start)
+  start += 1
+
+select = []
+for n in range(7):
+  select.append(10**n)
+
+product = 1
+for m in select:
+  product *= int(start_string[m-1])
+
+print(f"The product is {product}")
