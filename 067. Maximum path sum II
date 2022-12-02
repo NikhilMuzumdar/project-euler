@@ -1,0 +1,36 @@
+def read_data(file_name):
+    '''Read the data into a 2D list'''
+    data = []
+    with open(file_name, mode='r') as file:
+        for row in file.readlines():
+            data.append(row.rstrip())
+
+    data = [line.split(" ") for line in data]
+    data = [[int(num) for num in el] for el in data]
+    return data
+
+def max_sum(list1, list2):
+    '''A func that given two lists, n and n+1 long and n !=0, returns a list with max values, n long'''
+    for i in range(len(list1)):
+        list1[i] = list1[i] + max(list2[i], list2[i+1])
+    return list1
+
+data = read_data('p067_triangle.txt')
+
+with open('output.txt', mode='w') as file:
+    for line in data:
+        space = int((len(data[-1]) - len(line)))
+        file.write("  " * space + str(line))
+        file.write('\n')
+
+for i in range(len(data)-2, -1, -1):
+    data[i] = max_sum(data[i], data[i+1])
+
+with open('output.txt', mode='a') as file:
+    file.write("\n")
+    for line in data:
+        space = int((len(data[-1]) - len(line)))
+        file.write("  " * space + str(line))
+        file.write('\n')
+
+print(*data[0])
