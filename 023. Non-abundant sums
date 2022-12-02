@@ -1,0 +1,35 @@
+from math import sqrt, floor
+
+def factors_sum(n):
+    fact = set()
+    fact.add(1)
+    for i in range(2, floor(sqrt(n))+1):
+        if n % i == 0:
+            if i**2 == n:
+                fact.add(i)
+            else:
+                fact.update([i, int(n/i)])
+    return sum(fact)
+
+def abundant_number(upto: int) -> list:
+    '''Generates a list of abundant numbers up to a given limit'''
+    abundants = set()
+    for i in range(1, upto+1):
+        if i < factors_sum(i):
+            abundants.add(i)
+    return sorted(abundants)
+
+def main():
+    abundants = abundant_number(28123)
+    constructables = set()
+    for i in range(len(abundants)):
+        for j in range(i, len(abundants)):
+            s = abundants[i]+abundants[j]
+            if s <= 28123:
+                constructables.add(s)
+    sol = [num for num in range(28123) if num not in constructables]
+    print(sum(sol))
+
+
+if __name__ == '__main__':
+    main()
