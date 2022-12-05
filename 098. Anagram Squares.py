@@ -1,4 +1,5 @@
 # return a dict of words
+file_path = '/Users/cyborg/Documents/VsCode/TestGit/project-euler/098A. p098_words.txt'
 def read_data(file_name):
     from collections import OrderedDict
     with open(file_name, mode='r') as file:
@@ -38,7 +39,7 @@ def filter_anagram_dict(word_map):
 
 
 def main():
-    word_map = read_data('/Users/cyborg/Documents/VsCode/Test Folder/p098_words.txt')
+    word_map = read_data(file_path)
     anagram_word_dict = filter_anagram_dict(word_map)
     for key in anagram_word_dict:
         print(key, anagram_word_dict[key])
